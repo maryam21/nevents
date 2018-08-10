@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import EventCard from './EventCard';
 
 export default class EventList extends React.Component {
     state = {
@@ -16,7 +17,7 @@ export default class EventList extends React.Component {
         return (
         <FlatList 
             data={this.state.events}
-            renderItem={(({item}) => <Text>{item.title}</Text>)}
+            renderItem={(({item}) => <EventCard event={item}/>)}
             keyExtractor={item => item.id}
         />
         );
